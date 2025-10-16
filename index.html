@@ -219,7 +219,6 @@
             cursor: not-allowed;
         }
 
-        /* Lead Form Modal */
         .modal {
             display: none;
             position: fixed;
@@ -313,6 +312,17 @@
 
         li {
             margin-bottom: 0.5rem;
+        }
+
+        .policy-box {
+            background: #FFF9E6;
+            border-left: 4px solid #FFD700;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        strong {
+            color: var(--navy);
         }
 
         @media (max-width: 768px) {
@@ -462,13 +472,13 @@
             </div>
         </div>
 
-        <!-- Additional pages would continue here -->
+        <!-- Page 5: Secondaries -->
         <div class="page hidden" data-page="5">
             <div class="page-number">Page 5 of 42</div>
             <h2>Secondaries have grown but remain a niche play</h2>
 
             <div class="chart-placeholder">
-                [Chart: Estimated unicorn market size by strategy]
+                [Chart: Estimated unicorn market size by strategy - Primary unicorns: $3,206.8B | Secondary market: $60.0B]
             </div>
 
             <p>Our current estimate of the US VC direct secondary market ranges from $48.1 billion to $71.5 billion, with a midpoint of $60 billion. However, the market size is modest compared with VC's liquidity needs. $60 billion makes up less than 2% of total unicorn valuations and is comparable to Q2's primary exit value of $67.7 billion.</p>
@@ -485,7 +495,324 @@
             </div>
         </div>
 
-        <!-- More pages would be added here following the same pattern -->
+        <!-- Page 6: Secondaries Continued -->
+        <div class="page hidden" data-page="6">
+            <div class="page-number">Page 6 of 42</div>
+            <h2>Secondaries dry powder has more than doubled since 2022</h2>
+
+            <div class="chart-placeholder">
+                [Chart: VC secondaries dry powder - Total: $9.8B with breakdown by vintage from Pre-2018 to 2024]
+            </div>
+
+            <p>Multiple signs point to the continued expansion of secondaries as a structural pillar of the venture ecosystem, especially in a landscape where IPOs and M&A remain selective and lumpy. VC-specific secondary dry powder has more than doubled since 2022.</p>
+
+            <p>Secondaries are no longer a last resort, but rather a strategic tool. The market has matured significantly, with dedicated funds and platforms emerging to facilitate these transactions.</p>
+
+            <div class="chart-placeholder">
+                [Chart: Later stage has the largest gap between VC demand and supply - Demand/supply ratio by quarter showing Early-Stage, Late-Stage, and Venture-Growth-Stage trends]
+            </div>
+
+            <p>The demand-supply ratio varies significantly by stage, with later-stage companies showing the most significant imbalance. This creates opportunities for secondary transactions as a pressure relief valve.</p>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" onclick="previousPage()">Previous</button>
+                <button class="btn btn-primary" onclick="nextPage()">Next Page</button>
+            </div>
+        </div>
+
+        <!-- Page 7: NVCA Policy Highlights -->
+        <div class="page hidden" data-page="7">
+            <div class="page-number">Page 7 of 42</div>
+            <h1>NVCA Policy Highlights</h1>
+
+            <p>In a dramatic late-night session, the US House of Representatives narrowly approved the Senate's version of the "One Big Beautiful Bill Act" by a 218–214 vote, sending the legislation to President Donald Trump just ahead of the self-imposed July 4th deadline.</p>
+
+            <div class="policy-box">
+                <h3>Key Policy Wins for NVCA</h3>
+                <ul>
+                    <li><strong>Carried interest:</strong> No changes made. Existing tax treatment remains.</li>
+                    <li><strong>Qualified small business stock expansion:</strong> Introduces a tiered capital gains exclusion on stock purchased post-enactment: 50% exclusion after three years, 75% after four years, and 100% after five years.</li>
+                    <li><strong>R&D expensing:</strong> Allows immediate, permanent expensing of R&D expenditures. Small businesses with up to $31 million in gross receipts may apply this benefit retroactively to tax year 2022.</li>
+                </ul>
+            </div>
+
+            <h3>Areas of Concern</h3>
+            <p><strong>University endowment tax overhaul:</strong> The bill replaces the current excise tax on net investment income with a three-tiered system based on per-student endowment levels. Universities with 3,000 or fewer tuition-paying students are exempt.</p>
+
+            <p><strong>Clean energy tax credits:</strong> The bill makes significant changes to energy tax credits, especially those from the Inflation Reduction Act (IRA).</p>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" onclick="previousPage()">Previous</button>
+                <button class="btn btn-primary" onclick="nextPage()">Next Page</button>
+            </div>
+        </div>
+
+        <!-- Page 8: Dealmaking -->
+        <div class="page hidden" data-page="8">
+            <div class="page-number">Page 8 of 42</div>
+            <h1>Dealmaking</h1>
+            <h2>Q2 deal count remains roughly flat, while deal value dropped by 25%</h2>
+
+            <div class="chart-placeholder">
+                [Chart: VC deal activity by quarter showing deal value and count from 2020-2025]
+            </div>
+
+            <p>In Q2 2025, VC firms deployed $69.9 billion across an estimated 4,001 deals, representing a sharp 24.8% QoQ decline in deal value. This drop was due primarily to the lack of a $40 billion deal in Q2. OpenAI's deal from Q1 would alone represent roughly 57% of Q2's aggregate.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">$69.9B</div>
+                    <div class="stat-label">Q2 Deal Value</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">4,001</div>
+                    <div class="stat-label">Estimated Deals</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">-24.8%</div>
+                    <div class="stat-label">QoQ Change</div>
+                </div>
+            </div>
+
+            <p>By contrast, Q2's largest transaction was Scale AI's $14.3 billion venture-growth round, which fell well short in scale, despite being the second-largest VC deal ever.</p>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" onclick="previousPage()">Previous</button>
+                <button class="btn btn-primary" onclick="nextPage()">Next Page</button>
+            </div>
+        </div>
+
+        <!-- Page 9: H1 Deal Activity -->
+        <div class="page hidden" data-page="9">
+            <div class="page-number">Page 9 of 42</div>
+            <h2>H1 deal value buoyed by select AI megadeals</h2>
+
+            <div class="chart-placeholder">
+                [Chart: VC deal activity 2015-2025 showing annual trends]
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">$162.8B</div>
+                    <div class="stat-label">H1 2025 Deal Value</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">8,083</div>
+                    <div class="stat-label">H1 2025 Deal Count</div>
+                </div>
+            </div>
+
+            <p>Fueled by select outsized Q1 deals and persistent AI momentum, venture-growth-stage deal activity surged in H1 2025, with $83.9 billion deployed across an estimated 499 deals. On an annualized basis, this implies $167.8 billion in growth-stage venture capital deployment, far surpassing the 2021 peak of $91.6 billion.</p>
+
+            <p>AI continues to dominate the upper end of the deal spectrum. In Q2, five AI deals topped $1 billion, including Scale AI, Safe Superintelligence, Thinking Machine Labs, Anduril, and Grammarly. The sector represented 64.1% and 35.6% of H1 2025 deal value and count, respectively.</p>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" onclick="previousPage()">Previous</button>
+                <button class="btn btn-primary" onclick="nextPage()">Next Page</button>
+            </div>
+        </div>
+
+        <!-- Page 10: Venture Growth Activity -->
+        <div class="page hidden" data-page="10">
+            <div class="page-number">Page 10 of 42</div>
+            <h2>Annualized venture-growth deal value is on track to hit decade high</h2>
+
+            <div class="chart-placeholder">
+                [Chart: Venture-growth deal activity by quarter from 2020-2025]
+            </div>
+
+            <p>While we do not expect another outlier deal on the same scale as OpenAI's $40 billion round from Q1, the market continues to see outsized AI deals such as the Scale AI deal featuring Meta purchasing a 49% stake in the company in Q2.</p>
+
+            <h3>Share of sub-$5 million deals continues to decline</h3>
+
+            <div class="chart-placeholder">
+                [Chart: Share of VC deal count by size bucket showing distribution from <$1M to $50M+]
+            </div>
+
+            <p>The share of sub-$5 million rounds fell to 48.6% of all VC deals, down from 55.4% in 2024, marking a decade low. This shift underscores a selective market environment where capital increasingly flows to startups with strong traction.</p>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" onclick="previousPage()">Previous</button>
+                <button class="btn btn-primary" onclick="nextPage()">Next Page</button>
+            </div>
+        </div>
+
+        <!-- Page 11: J.P. Morgan Commentary -->
+        <div class="page hidden" data-page="11">
+            <div class="page-number">Page 11 of 42</div>
+            <h1>A Word from J.P. Morgan</h1>
+            <h2>Our views on venture</h2>
+
+            <div class="highlight-box">
+                <p><em>"J.P. Morgan is proud to serve some of the most disruptive and innovative companies of our time. Whether companies need expertise in payments, capital raising, liquidity solutions, or strategic advisory, we are uniquely positioned to support the venture ecosystem globally."</em></p>
+                <p><strong>— Andrew Kresse, Co-Head Innovation Economy</strong></p>
+            </div>
+
+            <h3>The IPO markets appear to be back on the road to recovery</h3>
+
+            <p>Although overall IPO activity is tracking behind optimistic expectations coming into the year, this is mainly due to macro-and-policy-uncertainty-induced market volatility, which has since retreated. David Bauer, co-head of Equity Capital Markets, notes that more recently there have been numerous green shoots, which is expected to provide a much-improved backdrop for tech issuance through the rest of the year.</p>
+
+            <p>The recent market rally post-Liberation Day, robust investor liquidity, and consistent IPO performance have created the most attractive issuance conditions in several years.</p>
+
+            <h3>Key Observations:</h3>
+            <ul>
+                <li>Increased mutual fund participation with books multiple times oversubscribed</li>
+                <li>Greater interest for sub-$5 billion market cap issuers</li>
+                <li>IPO discounts in the 30% area reflecting current market realities</li>
+                <li>Some issuers bringing forward 2026 IPO plans to Q4 2025</li>
+            </ul>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" onclick="previousPage()">Previous</button>
+                <button class="btn btn-primary" onclick="nextPage()">Next Page</button>
+            </div>
+        </div>
+
+        <!-- Page 12: J.P. Morgan M&A -->
+        <div class="page hidden" data-page="12">
+            <div class="page-number">Page 12 of 42</div>
+            <h3>Tech sector M&A also on the upswing</h3>
+
+            <p>According to Vineet Seth, head of technology M&A, similar to the IPO market, M&A activity within the technology sector is also accelerating, particularly in software. Venture capital, growth equity, and private equity firms have held portfolio assets longer than usual, supporting a solid pipeline of potential M&A as these private businesses are brought to market over the coming months and quarters.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">30%</div>
+                    <div class="stat-label">Tech's Share of M&A (YTD)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">22%</div>
+                    <div class="stat-label">2024 Share</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">18%</div>
+                    <div class="stat-label">2023 Share</div>
+                </div>
+            </div>
+
+            <h3>After a turbulent few weeks post-Liberation Day, previously prevailing themes in venture are back</h3>
+
+            <p>While trade and tariff policy uncertainty remains an overhang, the stronger-than-expected first quarter earnings season, recovery in equity markets, and resilience of AI have gone a long way to restore sentiment across the venture ecosystem.</p>
+
+            <p>The market correction and volatility in April was significant but relatively orderly and short-lived. As the waters have calmed, equity issuance volumes have begun to improve and M&A activity involving startups has resumed the positive pace set earlier in the year.</p>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" onclick="previousPage()">Previous</button>
+                <button class="btn btn-primary" onclick="nextPage()">Next Page</button>
+            </div>
+        </div>
+
+        <!-- Page 13: Regional Spotlight -->
+        <div class="page hidden" data-page="13">
+            <div class="page-number">Page 13 of 42</div>
+            <h1>Regional Spotlight</h1>
+            <h2>Bay Area, NY, Boston, LA account for 48.2% of deal count, 72.3% of deal value in Q2</h2>
+
+            <div class="chart-placeholder">
+                [Map: Q2 2025 VC deal activity by ecosystem showing major US markets]
+            </div>
+
+            <h3>Top Markets by Deal Activity:</h3>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">664</div>
+                    <div class="stat-label">Bay Area Deals</div>
+                    <div style="margin-top: 0.5rem; color: var(--teal);">$35.0B</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">436</div>
+                    <div class="stat-label">New York Deals</div>
+                    <div style="margin-top: 0.5rem; color: var(--teal);">$6.3B</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">199</div>
+                    <div class="stat-label">Los Angeles Deals</div>
+                    <div style="margin-top: 0.5rem; color: var(--teal);">$6.5B</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">164</div>
+                    <div class="stat-label">Boston Deals</div>
+                    <div style="margin-top: 0.5rem; color: var(--teal);">$2.7B</div>
+                </div>
+            </div>
+
+            <p>Capital deployment remains concentrated in major innovation hubs, with the Bay Area commanding the largest share of both deal count and value. More than half of deals across all stages except late-stage occur in the four major hubs.</p>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" onclick="previousPage()">Previous</button>
+                <button class="btn btn-primary" onclick="nextPage()">Next Page</button>
+            </div>
+        </div>
+
+        <!-- Page 14: Healthcare -->
+        <div class="page hidden" data-page="14">
+            <div class="page-number">Page 14 of 42</div>
+            <h1>Healthcare</h1>
+            <h2>Healthcare lags 2024 activity</h2>
+
+            <div class="chart-placeholder">
+                [Chart: Healthcare VC deal activity 2015-2025 showing $22.0B and 1,293 deals in H1 2025]
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">$22.0B</div>
+                    <div class="stat-label">H1 2025 Deal Value</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1,293</div>
+                    <div class="stat-label">H1 2025 Deal Count</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">$5.2M</div>
+                    <div class="stat-label">Median Deal Size</div>
+                </div>
+            </div>
+
+            <h3>Deal sizes continue to rise</h3>
+
+            <div class="chart-placeholder">
+                [Chart: Median and average healthcare VC deal values showing median of $5.2M and average of $21.5M in 2025]
+            </div>
+
+            <p>Healthcare deal activity in H1 2025 shows a more cautious investment environment compared to the previous year, though deal sizes have increased significantly. The median deal size reached $5.2 million, while the average climbed to $21.5 million, suggesting investors are focusing on more mature, capital-intensive opportunities.</p>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" onclick="previousPage()">Previous</button>
+                <button class="btn btn-primary" onclick="nextPage()">Next Page</button>
+            </div>
+        </div>
+
+        <!-- Page 15: Healthcare Segments -->
+        <div class="page hidden" data-page="15">
+            <div class="page-number">Page 15 of 42</div>
+            <h2>Healthcare technology systems deals grow</h2>
+
+            <div class="chart-placeholder">
+                [Chart: Share of healthcare VC deal count by segment from 2015-2025]
+            </div>
+
+            <p>Healthcare technology systems have been gaining significant traction, representing a growing share of deal activity as investors focus on digital health solutions, health IT platforms, and AI-driven diagnostic tools.</p>
+
+            <h3>Pharma & biotech funding hitting lows</h3>
+
+            <div class="chart-placeholder">
+                [Chart: Share of healthcare VC deal value by segment showing declining pharma & biotech share]
+            </div>
+
+            <p>While pharma and biotech historically commanded a large portion of healthcare venture dollars, their share has declined as investors pivot toward technology-enabled healthcare solutions that promise faster returns and more scalable business models.</p>
+
+            <div class="highlight-box">
+                <p><strong>Segment Breakdown:</strong> Healthcare devices & supplies, healthcare services, healthcare technology systems, pharma & biotech, and other healthcare companies all compete for investor attention in an increasingly selective market.</p>
+            </div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" onclick="previousPage()">Previous</button>
+                <button class="btn btn-primary" onclick="nextPage()">Next Page</button>
+            </div>
+        </div>
+
     </div>
 
     <!-- Lead Form Modal -->
@@ -549,7 +876,7 @@
     <script>
         let currentPage = 1;
         let formSubmitted = false;
-        const totalPages = 5; // You can expand this as you add more pages
+        const totalPages = 15;
 
         function updatePage() {
             // Hide all pages
@@ -572,8 +899,8 @@
         }
 
         function nextPage() {
-            // Show lead form after page 3 if not yet submitted
-            if (currentPage === 3 && !formSubmitted) {
+            // Show lead form after page 5 if not yet submitted
+            if (currentPage === 5 && !formSubmitted) {
                 document.getElementById('leadModal').classList.add('active');
                 return;
             }
@@ -602,13 +929,21 @@
                 email: document.getElementById('email').value,
                 company: document.getElementById('company').value,
                 jobTitle: document.getElementById('jobTitle').value,
-                industry: document.getElementById('industry').value
+                industry: document.getElementById('industry').value,
+                timestamp: new Date().toISOString()
             };
 
-            // Here you would typically send this to your backend
+            // Log to console (in production, send to your backend)
             console.log('Form submitted:', formData);
 
-            // For demonstration, we'll just close the modal and continue
+            // You could send to a backend API like this:
+            // fetch('https://your-api.com/leads', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(formData)
+            // });
+
+            // Mark form as submitted
             formSubmitted = true;
             document.getElementById('leadModal').classList.remove('active');
             
@@ -620,10 +955,9 @@
             alert('Thank you! You now have access to the full report.');
         });
 
-        // Close modal when clicking outside
+        // Prevent closing modal without submission
         document.getElementById('leadModal').addEventListener('click', function(e) {
             if (e.target === this) {
-                // Don't allow closing without submission
                 alert('Please fill out the form to continue reading the report.');
             }
         });
