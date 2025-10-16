@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q2 2025 Venture Monitor | PitchBook-NVCA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #001F3F;
+            --teal: #00A9B7;
+            --light-gray: #F5F5F5;
+            --dark-gray: #333;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: var(--light-gray);
+        }
+
+        .header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .quarter-badge {
+            background: var(--teal);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--teal);
+            width: 0%;
+            transition: width 0.3s;
+            z-index: 101;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page {
+            background: var(--white);
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            min-height: 600px;
+        }
+
+        .page.hidden {
+            display: none;
+        }
+
+        .page-number {
+            color: var(--teal);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            color: var(--navy);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            color: var(--navy);
+            font-size: 2rem;
+            margin: 2rem 0 1rem 0;
+        }
+
+        h3 {
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            margin-bottom: 2rem;
+        }
+
+        .chart-placeholder {
+            background: var(--light-gray);
+            border: 2px dashed #ccc;
+            padding: 3rem;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: 4px;
+            color: #666;
+        }
+
+        .sponsors {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 2rem 0;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .sponsor {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--navy);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--teal);
+        }
+
+        .stat-label {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #ddd;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--teal);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #008A96;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--navy);
+            border: 2px solid var(--navy);
+        }
+
+        .btn-secondary:hover {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Lead Form Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-header h2 {
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-header p {
+            color: #666;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--navy);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--teal);
+        }
+
+        .required {
+            color: red;
+        }
+
+        .form-footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .highlight-box {
+            background: #E8F4F8;
+            border-left: 4px solid var(--teal);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .page {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .modal-content {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">PitchBook × NVCA</div>
+                <div class="quarter-badge">Q2 2025</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Page 1: Cover -->
+        <div class="page" data-page="1">
+            <div class="page-number">Page 1 of 42</div>
+            <h1>Venture Monitor</h1>
+            <p class="subtitle">The definitive review of the US venture capital ecosystem</p>
+            
+            <div class="sponsors">
+                <div class="sponsor">J.P.Morgan</div>
+                <div class="sponsor">DENTONS</div>
+                <div class="sponsor">Deloitte</div>
+                <div class="sponsor">Oracle NetSuite</div>
+            </div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" disabled>Previous</button>
+                <button class="btn btn-primary" onclick="nextPage()">Next Page</button>
+            </div>
+        </div>
+
+        <!-- Page 2: Contents -->
+        <div class="page hidden" data-page="2">
+            <div class="page-number">Page 2 of 42</div>
+            <h1>Contents</h1>
+            
+            <div style="column-count: 2; column-gap: 3rem; margin-top: 2rem;">
+                <p><strong>Market overview</strong> - 4</p>
+                <p><strong>NVCA policy highlights</strong> - 7</p>
+                <p><strong>Dealmaking</strong> - 8</p>
+                <p><strong>A word from J.P. Morgan</strong> - 11</p>
+                <p><strong>Regional spotlight</strong> - 13</p>
+                <p><strong>Healthcare</strong> - 14</p>
+                <p><strong>Tech</strong> - 16</p>
+                <p><strong>Female founders</strong> - 17</p>
+                <p><strong>A word from Dentons</strong> - 19</p>
+                <p><strong>Investor trends</strong> - 22</p>
+                <p><strong>Venture debt</strong> - 25</p>
+                <p><strong>A word from Deloitte</strong> - 27</p>
+                <p><strong>Exits</strong> - 30</p>
+                <p><strong>A word from Oracle NetSuite</strong> - 33</p>
+                <p><strong>Fundraising and performance</strong> - 36</p>
+                <p><strong>Q2 2025 US league tables</strong> - 39</p>
+                <p><strong>H1 2025 US league tables</strong> - 40</p>
+                <p><strong>Methodology</strong> - 41</p>
+            </div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" onclick="previousPage()">Previous</button>
+                <button class="btn btn-primary" onclick="nextPage()">Next Page</button>
+            </div>
+        </div>
+
+        <!-- Page 3: Market Overview -->
+        <div class="page hidden" data-page="3">
+            <div class="page-number">Page 3 of 42</div>
+            <h1>Market Overview</h1>
+            <h2>Tariff-induced market uncertainty a bad sign for IPOs</h2>
+
+            <div class="chart-placeholder">
+                [Chart: Trailing 12-month VC-Backed IPO Index price/sales ratio versus VIX Index]
+            </div>
+
+            <p>Volatility and IPOs were Q2's defining features. The quarter opened with a jolt from Liberation Day tariff announcements, plummeting the S&P 500 by over 10% in a few days and prompting many startups that had already filed to hit the brakes on going public. In a partial reversal, the Trump administration soon issued a 90-day pause on tariffs, which helped steady public equities.</p>
+
+            <p>In June, consumer sentiment recovered for the first time since December 2024 as consumers began adjusting to the tariff shock, even though they remain wary.</p>
+
+            <div class="highlight-box">
+                <strong>Key Insight:</strong> Despite the rocky start, venture exit activity began showing signs of life by the end of Q2 with a handful of high-profile IPOs and billion-dollar M&A deals.
+            </div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" onclick="previousPage()">Previous</button>
+                <button class="btn btn-primary" onclick="nextPage()">Next Page</button>
+            </div>
+        </div>
+
+        <!-- Page 4: Market Overview Continued -->
+        <div class="page hidden" data-page="4">
+            <div class="page-number">Page 4 of 42</div>
+            <h2>Steep recovery of IPO index after recent surge of high-performing listings</h2>
+
+            <div class="chart-placeholder">
+                [Chart: VC-Backed IPO Index rebased to 100 in 2020]
+            </div>
+
+            <p>Companies operating in AI, national security, defense tech, fintech, and crypto—sectors aligned with the administration's priorities—are attracting disproportionately more investor interest, and this trend will likely continue throughout President Donald Trump's term.</p>
+
+            <p>The liquidity outlook for the rest of 2025 is cautiously optimistic, marking a reset rather than a full recovery. Unanswered questions about the pace and magnitude of Federal Reserve rate cuts, unresolved global trade disputes, and geopolitical instability—particularly in the Middle East—create a risk environment that complicates company pricing.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">$67.7B</div>
+                    <div class="stat-label">Q2 Exit Value</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">394</div>
+                    <div class="stat-label">Total Exits</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">6</div>
+                    <div class="stat-label">Unicorn IPOs</div>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" onclick="previousPage()">Previous</button>
+                <button class="btn btn-primary" onclick="nextPage()">Next Page</button>
+            </div>
+        </div>
+
+        <!-- Additional pages would continue here -->
+        <div class="page hidden" data-page="5">
+            <div class="page-number">Page 5 of 42</div>
+            <h2>Secondaries have grown but remain a niche play</h2>
+
+            <div class="chart-placeholder">
+                [Chart: Estimated unicorn market size by strategy]
+            </div>
+
+            <p>Our current estimate of the US VC direct secondary market ranges from $48.1 billion to $71.5 billion, with a midpoint of $60 billion. However, the market size is modest compared with VC's liquidity needs. $60 billion makes up less than 2% of total unicorn valuations and is comparable to Q2's primary exit value of $67.7 billion.</p>
+
+            <p>Trading volume continues to be concentrated among a narrow slice of elite startups that have the highest primary and secondary investor demand and, consequently, strong pricing confidence. For example, Hiive reported that just 20 startups accounted for 83.2% of trading volume in Q1, with the top five alone representing over half.</p>
+
+            <div class="highlight-box">
+                <p><strong>Key Trend:</strong> VC-specific secondary dry powder has more than doubled since 2022, and tender offers are becoming more common, providing companies price certainty and low cap table churn while still offering early employees and investors a path to partial liquidity.</p>
+            </div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" onclick="previousPage()">Previous</button>
+                <button class="btn btn-primary" onclick="nextPage()">Continue Reading</button>
+            </div>
+        </div>
+
+        <!-- More pages would be added here following the same pattern -->
+    </div>
+
+    <!-- Lead Form Modal -->
+    <div class="modal" id="leadModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Continue Reading</h2>
+                <p>Please fill out this form to access the complete Q2 2025 Venture Monitor report</p>
+            </div>
+
+            <form id="leadForm">
+                <div class="form-group">
+                    <label>First Name <span class="required">*</span></label>
+                    <input type="text" id="firstName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Last Name <span class="required">*</span></label>
+                    <input type="text" id="lastName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email <span class="required">*</span></label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Company <span class="required">*</span></label>
+                    <input type="text" id="company" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Job Title</label>
+                    <input type="text" id="jobTitle">
+                </div>
+
+                <div class="form-group">
+                    <label>Industry <span class="required">*</span></label>
+                    <select id="industry" required>
+                        <option value="">Select an industry</option>
+                        <option value="venture-capital">Venture Capital</option>
+                        <option value="private-equity">Private Equity</option>
+                        <option value="startup">Startup/Entrepreneur</option>
+                        <option value="corporate">Corporate</option>
+                        <option value="service-provider">Service Provider</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    Access Full Report
+                </button>
+
+                <div class="form-footer">
+                    <p>By submitting this form, you agree to receive communications from PitchBook and NVCA. Your information will be kept confidential and used in accordance with our privacy policy.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        let formSubmitted = false;
+        const totalPages = 5; // You can expand this as you add more pages
+
+        function updatePage() {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('hidden');
+            });
+
+            // Show current page
+            const page = document.querySelector(`[data-page="${currentPage}"]`);
+            if (page) {
+                page.classList.remove('hidden');
+                window.scrollTo(0, 0);
+                updateProgressBar();
+            }
+        }
+
+        function updateProgressBar() {
+            const progress = (currentPage / totalPages) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function nextPage() {
+            // Show lead form after page 3 if not yet submitted
+            if (currentPage === 3 && !formSubmitted) {
+                document.getElementById('leadModal').classList.add('active');
+                return;
+            }
+
+            if (currentPage < totalPages) {
+                currentPage++;
+                updatePage();
+            }
+        }
+
+        function previousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                updatePage();
+            }
+        }
+
+        // Handle lead form submission
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Collect form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                jobTitle: document.getElementById('jobTitle').value,
+                industry: document.getElementById('industry').value
+            };
+
+            // Here you would typically send this to your backend
+            console.log('Form submitted:', formData);
+
+            // For demonstration, we'll just close the modal and continue
+            formSubmitted = true;
+            document.getElementById('leadModal').classList.remove('active');
+            
+            // Move to next page
+            currentPage++;
+            updatePage();
+
+            // Show success message
+            alert('Thank you! You now have access to the full report.');
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('leadModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                // Don't allow closing without submission
+                alert('Please fill out the form to continue reading the report.');
+            }
+        });
+
+        // Initialize
+        updatePage();
+    </script>
+</body>
+</html>
